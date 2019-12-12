@@ -1,0 +1,46 @@
+{
+    "manifestVersion": 1,
+    "id": "space-build-result",
+    "name": "JetBrains Space Chat Build Result",
+    "version": "0.0.41",
+    "publisher": "warrantor",
+    "private": true,
+    "targets": [
+        {
+            "id": "Microsoft.VisualStudio.Services"
+        }
+    ],
+    "description": "Publish Build result to JetBrains Space Chat.",
+    "categories": [
+        "Azure Pipelines"
+    ],
+    "icons": {
+        "default": "images/extension-icon.png"
+    },
+    "files": [
+        {
+            "path": "Task1/send-chat.js"
+        },
+        {
+            "path": "Task1/task.json"
+        },
+        {
+            "path": "Task1/icon.png"
+        },
+        {
+            "path": "Task1/node_modules"
+        }
+    ],
+    "contributions": [
+        {
+            "id": "space-build-result-task",
+            "type": "ms.vss-distributed-task.task",
+            "targets": [
+                "ms.vss-distributed-task.tasks"
+            ],
+            "properties": {
+                "name": "Task1"
+            }
+        }
+    ]
+}

@@ -1,0 +1,71 @@
+{
+    "$schema": "https://raw.githubusercontent.com/Microsoft/azure-pipelines-task-lib/master/tasks.schema.json",
+    "id": "075ae729-aec1-4f07-a555-7221fa7487cb",
+    "name": "space-build-result",
+    "friendlyName": "JetBrains Space Chat Build Result",
+    "description": "Publish Build result to JetBrains Space Chat",
+    "helpMarkDown": "",
+    "category": "Utility",
+    "author": "Jordi Borghers",
+    "version": {
+        "Major": 0,
+        "Minor": 1,
+        "Patch": 20
+    },
+    "instanceNameFormat": "Publish to Space",
+    "inputs": [
+        {
+            "name": "SpaceUri",
+            "type": "string",
+            "label": "Space URI",
+            "defaultValue": "",
+            "required": true,
+            "helpMarkDown": "The URI to your JetBrains Space Tenant.  Usually in the form of **https://<TENANT>.jetbrains.space**."
+        },
+        {
+            "name": "ClientId",
+            "type": "string",
+            "label": "Client ID",
+            "defaultValue": "",
+            "required": true,
+            "helpMarkDown": "The client_id. You can generate this at **Administration > Applications**.  For mor info visit [Register your application in Space](https://www.jetbrains.com/help/space/applications.html#register-your-client-in-space)."
+        },
+        {
+            "name": "ClientSecret",
+            "type": "string",
+            "label": "Client Secret",
+            "defaultValue": "",
+            "required": true,
+            "helpMarkDown": "The client_secret. You can generate this at **Administration > Applications**.  For mor info visit [Register your application in Space](https://www.jetbrains.com/help/space/applications.html#register-your-client-in-space)."
+        },
+        {
+            "name": "ChannelId",
+            "type": "string",
+            "label": "Channel ID",
+            "defaultValue": "",
+            "required": true,
+            "helpMarkDown": "The ID of the Channel where you want to send your Results to."
+        },
+        {
+            "name": "ChatMessage",
+            "type": "multiLine",
+            "label": "Channel Message",
+            "defaultValue": "",
+            "required": false,
+            "helpMarkDown": "The message to send to the Channel in Markdown.  If no text is provided a default message will be sent."
+        },
+        {
+            "name": "IncludeBadge",
+            "type": "boolean",
+            "label": "Include Badge",
+            "defaultValue": "",
+            "required": false,
+            "helpMarkDown": "Include a build status badge in the message?"
+        }
+    ],
+    "execution": {
+        "Node": {
+            "target": "send-chat.js"
+        }
+    }
+}
